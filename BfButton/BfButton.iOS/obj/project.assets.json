@@ -720,11 +720,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.iOS\\BfButton.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.iOS\\BfButton.iOS.csproj",
       "projectName": "BfButton.iOS",
-      "projectPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.iOS\\BfButton.iOS.csproj",
+      "projectPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.iOS\\BfButton.iOS.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.iOS\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -745,8 +745,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton\\BfButton.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton\\BfButton.csproj"
+            "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton\\BfButton.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton\\BfButton.csproj"
             }
           }
         }

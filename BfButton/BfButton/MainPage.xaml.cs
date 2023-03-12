@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BfButton.Helpers;
 using BfButton.Models;
 using Xamarin.Forms;
 
@@ -16,25 +17,32 @@ namespace BfButton
         private double CaptureTimeInSeconds = 10;
         private double CaptureIterationTimeInSeconds = 1;
         private bool ShouldStopTimer = false;
+        private Label[] ScoreLabels;
+
         private Dictionary<TeamColor, int> SidesPoints = new Dictionary<TeamColor, int>()
         {
             {TeamColor.Blue, 0},
             {TeamColor.Green, 0},
-            {TeamColor.Yellow, 0 }
+            {TeamColor.Yellow, 0}
         };
+
+        private string YellowFileName = "Yellow.txt";
+        private string GreenFileName = "Green.txt";
+        private string BlueFileName = "Blue.txt";
 
 
         public MainPage()
         {
             InitializeComponent();
-            //InitializeScoresFromLogs();
+            InitializeScoresFromLogs();
+            ScoreLabels = new Label[] { YellowScoreLabel, BlueScoreLabel, GreenScoreLabel };
         }
 
         private void YellowButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Yellow);
 
         private void GreenButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Green);
 
-        private void BlueButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Blue) ;
+        private void BlueButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Blue);
 
         private void SetButtonColor(TeamColor teamColor)
         {
@@ -44,6 +52,7 @@ namespace BfButton
                 StopContest();
                 return;
             }
+
             if (CurrentColor == TeamColor.Neutral)
             {
                 CurrentColor = teamColor;
@@ -54,6 +63,7 @@ namespace BfButton
                         ShouldStopTimer = false;
                         return false;
                     }
+
                     ContestValue += (CaptureIterationTimeInSeconds / CaptureTimeInSeconds);
                     if (ContestValue >= 1)
                     {
@@ -61,11 +71,11 @@ namespace BfButton
                         StopContest();
                         return false;
                     }
+
                     CaptureProgressBar.Progress = ContestValue;
                     return true;
                 });
             }
-
         }
 
         private void StopContest()
@@ -81,11 +91,11 @@ namespace BfButton
             switch (teamColor)
             {
                 case TeamColor.Yellow:
-                    return "Yellow.txt";
+                    return YellowFileName;
                 case TeamColor.Blue:
-                    return "Blue.txt";
+                    return BlueFileName;
                 case TeamColor.Green:
-                    return "Green.txt";
+                    return GreenFileName;
                 default:
                     return "Empty.txt";
             }
@@ -110,7 +120,7 @@ namespace BfButton
         {
             SidesPoints[teamColor]++;
             GetLabelNameFromTeam(teamColor).Text = $"Счет: {SidesPoints[teamColor].ToString()}";
-           // File.WriteAllText(GetLogFileNameFromTeam(teamColor), SidesPoints[teamColor].ToString());
+            FilesHelper.WriteScore(GetLogFileNameFromTeam(teamColor), SidesPoints[teamColor]);
         }
 
         private void InitializeScoresFromLogs()
@@ -120,12 +130,32 @@ namespace BfButton
             {
                 try
                 {
-                    SidesPoints[side] = int.Parse(File.ReadAllText(GetLogFileNameFromTeam(side)));
+                    SidesPoints[side] = FilesHelper.ReadScore(GetLogFileNameFromTeam(side));
                     GetLabelNameFromTeam(side).Text = $"Счет: {SidesPoints[side].ToString()}";
                 }
                 catch (FileNotFoundException)
                 {
                 }
+            }
+        }
+
+        private void ClearButton_Clicked(object sender, EventArgs e)
+        {
+            if (DestroyPointEntry.Text != "ClearPointProgress")
+            {
+                DestroyPointEntry.Text = "";
+                return;
+            }
+            FilesHelper.WriteScore(YellowFileName, 0);
+            FilesHelper.WriteScore(GreenFileName, 0);
+            FilesHelper.WriteScore(BlueFileName, 0);
+            foreach (var key in SidesPoints.Keys.ToArray())
+            {
+                SidesPoints[key] = 0;
+            }
+            foreach (var label in ScoreLabels)
+            {
+                label.Text = "Очков : 0";
             }
         }
     }

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "DCSF1xACl1kZA2fEPW6Wh1437iuy0q8imYA3FbPxTtmrWE7yFVsBhKOgJ/zXdgp3AF+5Fejt/SILxwnSuCcCyg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton\\BfButton.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\xamarin.forms\\3.4.0.1008975\\xamarin.forms.3.4.0.1008975.nupkg.sha512"
+  ],
+  "logs": []
+}

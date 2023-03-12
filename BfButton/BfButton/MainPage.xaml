@@ -18,8 +18,8 @@
             <Label x:Name="BlueScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="FillAndExpand">
-            <Entry Placeholder="Пароль" HorizontalOptions="FillAndExpand"></Entry>
-            <Button Text="Ввод"></Button>
+            <Entry Placeholder="Пароль" x:Name="DestroyPointEntry" HorizontalOptions="FillAndExpand"></Entry>
+            <Button Text="Ввод" Clicked="ClearButton_Clicked"></Button>
         </StackLayout>
     </StackLayout>
 

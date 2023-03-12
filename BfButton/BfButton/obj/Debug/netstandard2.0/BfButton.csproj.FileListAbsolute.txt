@@ -10,3 +10,15 @@ C:\Users\user\source\repos\BfButton\BfButton\BfButton\obj\Debug\netstandard2.0\B
 C:\Users\user\source\repos\BfButton\BfButton\BfButton\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\user\source\repos\BfButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.dll
 C:\Users\user\source\repos\BfButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.pdb
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\bin\Debug\netstandard2.0\BfButton.deps.json
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\bin\Debug\netstandard2.0\BfButton.dll
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\bin\Debug\netstandard2.0\BfButton.pdb
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.csprojAssemblyReference.cache
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.AssemblyInfo.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.dll
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.pdb

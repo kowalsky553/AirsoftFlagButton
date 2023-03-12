@@ -801,11 +801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.Android\\BfButton.Android.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.Android\\BfButton.Android.csproj",
       "projectName": "BfButton.Android",
-      "projectPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.Android\\BfButton.Android.csproj",
+      "projectPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.Android\\BfButton.Android.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton.Android\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -826,8 +826,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton\\BfButton.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\BfButton\\BfButton\\BfButton\\BfButton.csproj"
+            "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton\\BfButton.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\GitHub\\AirsoftFlagButton\\BfButton\\BfButton\\BfButton.csproj"
             }
           }
         }
