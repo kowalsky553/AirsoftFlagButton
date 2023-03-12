@@ -14,8 +14,9 @@ namespace BfButton
     {
         private TeamColor CurrentColor = TeamColor.Neutral;
         private double ContestValue = 0;
-        private double CaptureTimeInSeconds = 10;
+        private double CaptureTimeInSeconds = 300;
         private double CaptureIterationTimeInSeconds = 1;
+        private int SecondsLeft;
         private bool ShouldStopTimer = false;
         private Label[] ScoreLabels;
 
@@ -56,6 +57,8 @@ namespace BfButton
             if (CurrentColor == TeamColor.Neutral)
             {
                 CurrentColor = teamColor;
+                SecondsLeft = (int)CaptureTimeInSeconds;
+                TimerLabel.BackgroundColor = ColorHelper.GetColorFromTeamColor(teamColor);
                 Device.StartTimer(TimeSpan.FromSeconds(CaptureIterationTimeInSeconds), () =>
                 {
                     if (ShouldStopTimer)
@@ -65,6 +68,8 @@ namespace BfButton
                     }
 
                     ContestValue += (CaptureIterationTimeInSeconds / CaptureTimeInSeconds);
+                    SecondsLeft -= (int)CaptureIterationTimeInSeconds;
+                    UpdateTimerText(SecondsLeft);
                     if (ContestValue >= 1)
                     {
                         UpdateTeamScore(teamColor);
@@ -84,21 +89,8 @@ namespace BfButton
             CaptureProgressBar.Progress = 0;
             ContestValue = 0;
             ShouldStopTimer = true;
-        }
-
-        private string GetLogFileNameFromTeam(TeamColor teamColor)
-        {
-            switch (teamColor)
-            {
-                case TeamColor.Yellow:
-                    return YellowFileName;
-                case TeamColor.Blue:
-                    return BlueFileName;
-                case TeamColor.Green:
-                    return GreenFileName;
-                default:
-                    return "Empty.txt";
-            }
+            TimerLabel.BackgroundColor = Color.White;
+            UpdateTimerText((int)CaptureTimeInSeconds);
         }
 
         private Label GetLabelNameFromTeam(TeamColor teamColor)
@@ -116,11 +108,16 @@ namespace BfButton
             }
         }
 
+        private void UpdateTimerText(int secondsLeft)
+        {
+            TimerLabel.Text = $"{secondsLeft / 60}m:{secondsLeft % 60}s";
+        }
+
         private void UpdateTeamScore(TeamColor teamColor)
         {
             SidesPoints[teamColor]++;
             GetLabelNameFromTeam(teamColor).Text = $"Счет: {SidesPoints[teamColor].ToString()}";
-            FilesHelper.WriteScore(GetLogFileNameFromTeam(teamColor), SidesPoints[teamColor]);
+            FilesHelper.WriteScore(ColorHelper.GetLogFileNameFromTeam(teamColor), SidesPoints[teamColor]);
         }
 
         private void InitializeScoresFromLogs()
@@ -130,7 +127,7 @@ namespace BfButton
             {
                 try
                 {
-                    SidesPoints[side] = FilesHelper.ReadScore(GetLogFileNameFromTeam(side));
+                    SidesPoints[side] = FilesHelper.ReadScore(ColorHelper.GetLogFileNameFromTeam(side));
                     GetLabelNameFromTeam(side).Text = $"Счет: {SidesPoints[side].ToString()}";
                 }
                 catch (FileNotFoundException)
@@ -146,6 +143,7 @@ namespace BfButton
                 DestroyPointEntry.Text = "";
                 return;
             }
+
             FilesHelper.WriteScore(YellowFileName, 0);
             FilesHelper.WriteScore(GreenFileName, 0);
             FilesHelper.WriteScore(BlueFileName, 0);
@@ -153,6 +151,7 @@ namespace BfButton
             {
                 SidesPoints[key] = 0;
             }
+
             foreach (var label in ScoreLabels)
             {
                 label.Text = "Очков : 0";

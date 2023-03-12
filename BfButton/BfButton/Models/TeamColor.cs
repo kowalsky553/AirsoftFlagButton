@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BfButton.Models
 {
-    enum TeamColor
+    public enum TeamColor
     {
         Yellow,
         Blue,

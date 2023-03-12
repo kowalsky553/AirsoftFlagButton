@@ -13,6 +13,9 @@
             <Button Text="Blue" BackgroundColor="Blue" HorizontalOptions="FillAndExpand" Clicked="BlueButton_Clicked"></Button>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label x:Name="TimerLabel" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
             <Label x:Name="YellowScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
             <Label x:Name="GreenScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
             <Label x:Name="BlueScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
