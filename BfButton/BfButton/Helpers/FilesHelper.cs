@@ -16,5 +16,12 @@ namespace BfButton.Helpers
         {
             File.WriteAllText(string.Concat(LocalAppFolder, fileName), value.ToString());
         }
+
+        public static void ClearAllScore()
+        {
+            WriteScore("Yellow.txt", 0);
+            WriteScore("Green.txt", 0);
+            WriteScore("Blue.txt", 0);
+        }
     }
 }

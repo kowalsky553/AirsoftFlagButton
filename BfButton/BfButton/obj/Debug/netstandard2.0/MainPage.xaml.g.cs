@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("BfButton.MainPage.xaml", "MainPage.xaml", typeof(global::BfButton.MainPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("BfButton.MainPage.xaml", "MainPage.xaml", typeof(global::BfButton.Views.MainPage))]
 
-namespace BfButton {
+namespace BfButton.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("MainPage.xaml")]

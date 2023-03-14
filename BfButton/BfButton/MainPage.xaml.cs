@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BfButton.Helpers;
 using BfButton.Models;
 using Xamarin.Forms;
 
-namespace BfButton
+namespace BfButton.Views
 {
     public partial class MainPage : ContentPage
     {
         private TeamColor CurrentColor = TeamColor.Neutral;
         private double ContestValue = 0;
-        private double CaptureTimeInSeconds = 300;
+        private double CaptureTimeInSeconds = 5;
         private double CaptureIterationTimeInSeconds = 1;
         private int SecondsLeft;
         private bool ShouldStopTimer = false;
@@ -27,23 +25,31 @@ namespace BfButton
             {TeamColor.Yellow, 0}
         };
 
-        private string YellowFileName = "Yellow.txt";
-        private string GreenFileName = "Green.txt";
-        private string BlueFileName = "Blue.txt";
-
 
         public MainPage()
         {
             InitializeComponent();
             InitializeScoresFromLogs();
-            ScoreLabels = new Label[] { YellowScoreLabel, BlueScoreLabel, GreenScoreLabel };
+            ScoreLabels = new Label[] {YellowScoreLabel, BlueScoreLabel, GreenScoreLabel};
         }
 
-        private void YellowButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Yellow);
+        private void YellowButton_Clicked(object sender, EventArgs e) => Button_Clicked(TeamColor.Yellow);
 
-        private void GreenButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Green);
+        private void GreenButton_Clicked(object sender, EventArgs e) => Button_Clicked(TeamColor.Green);
 
-        private void BlueButton_Clicked(object sender, EventArgs e) => SetButtonColor(TeamColor.Blue);
+        private void BlueButton_Clicked(object sender, EventArgs e) => Button_Clicked(TeamColor.Yellow);
+
+        private void Button_Clicked(TeamColor teamColor)
+        {
+            if (CurrentColor == TeamColor.Neutral)
+            {
+                SetButtonColor(teamColor);
+            }
+            else
+            {
+                StopContest();
+            }
+        }
 
         private void SetButtonColor(TeamColor teamColor)
         {
@@ -57,7 +63,7 @@ namespace BfButton
             if (CurrentColor == TeamColor.Neutral)
             {
                 CurrentColor = teamColor;
-                SecondsLeft = (int)CaptureTimeInSeconds;
+                SecondsLeft = (int) CaptureTimeInSeconds;
                 TimerLabel.BackgroundColor = ColorHelper.GetColorFromTeamColor(teamColor);
                 Device.StartTimer(TimeSpan.FromSeconds(CaptureIterationTimeInSeconds), () =>
                 {
@@ -68,7 +74,7 @@ namespace BfButton
                     }
 
                     ContestValue += (CaptureIterationTimeInSeconds / CaptureTimeInSeconds);
-                    SecondsLeft -= (int)CaptureIterationTimeInSeconds;
+                    SecondsLeft -= (int) CaptureIterationTimeInSeconds;
                     UpdateTimerText(SecondsLeft);
                     if (ContestValue >= 1)
                     {
@@ -90,7 +96,7 @@ namespace BfButton
             ContestValue = 0;
             ShouldStopTimer = true;
             TimerLabel.BackgroundColor = Color.White;
-            UpdateTimerText((int)CaptureTimeInSeconds);
+            UpdateTimerText((int) CaptureTimeInSeconds);
         }
 
         private Label GetLabelNameFromTeam(TeamColor teamColor)
@@ -122,7 +128,7 @@ namespace BfButton
 
         private void InitializeScoresFromLogs()
         {
-            var sides = new[] { TeamColor.Blue, TeamColor.Green, TeamColor.Yellow };
+            var sides = new[] {TeamColor.Blue, TeamColor.Green, TeamColor.Yellow};
             foreach (var side in sides)
             {
                 try
@@ -138,23 +144,11 @@ namespace BfButton
 
         private void ClearButton_Clicked(object sender, EventArgs e)
         {
-            if (DestroyPointEntry.Text != "ClearPointProgress")
+            if (DestroyPointEntry.Text.ToLower() == "kill")
             {
+                StopContest();
+                App.Current.MainPage = new DestroyPointPage();
                 DestroyPointEntry.Text = "";
-                return;
-            }
-
-            FilesHelper.WriteScore(YellowFileName, 0);
-            FilesHelper.WriteScore(GreenFileName, 0);
-            FilesHelper.WriteScore(BlueFileName, 0);
-            foreach (var key in SidesPoints.Keys.ToArray())
-            {
-                SidesPoints[key] = 0;
-            }
-
-            foreach (var label in ScoreLabels)
-            {
-                label.Text = "Очков : 0";
             }
         }
     }

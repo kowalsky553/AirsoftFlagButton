@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RuntimeIdentifiers Condition="$(TargetFramework.Contains('-android'))">android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,4 +14,5 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
+  
 </Project>
