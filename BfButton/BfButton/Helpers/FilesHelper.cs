@@ -11,6 +11,30 @@ namespace BfButton.Helpers
         {
             return int.Parse(File.ReadAllText(string.Concat(LocalAppFolder, fileName)));
         }
+        
+        public static (double timeToCaprure, double timeToDestroy) ReadConfig()
+        {
+            var timeToCapture = 900d;
+            var timeToDestroy = 900d;
+            try
+            {
+                timeToCapture = (double) ReadScore(Constants.CaptureTimeSettingsFile);
+            }
+            catch (FileNotFoundException)
+            {
+                
+            }
+            try
+            {
+                timeToDestroy = (double) ReadScore(Constants.DestroyTimeSettingsFile);
+            }
+            catch (FileNotFoundException)
+            {
+                
+            }
+
+            return (timeToCapture, timeToDestroy);
+        }
 
         public static void WriteScore(string fileName, int value)
         {

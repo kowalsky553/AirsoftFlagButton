@@ -21,5 +21,6 @@ C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\
 C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.dll
 C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\BfButton.pdb
-C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\DestroyPointPage.xaml.g.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\Views\DestroyPointPage.xaml.g.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\user\source\repos\GitHub\AirsoftFlagButton\BfButton\BfButton\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs

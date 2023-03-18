@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BfButton"
+             x:Class="BfButton.Views.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <ProgressBar x:Name="CaptureProgressBar" ></ProgressBar>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Button Text="Yellow" BackgroundColor="Yellow" HorizontalOptions="FillAndExpand" Clicked="YellowButton_Clicked"></Button>
+            <Button Text="Green" BackgroundColor="Green" HorizontalOptions="FillAndExpand" Clicked="GreenButton_Clicked"></Button>
+            <Button Text="Blue" BackgroundColor="Blue" HorizontalOptions="FillAndExpand" Clicked="BlueButton_Clicked"></Button>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label x:Name="TimerLabel" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Font="20"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label x:Name="YellowScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
+            <Label x:Name="GreenScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
+            <Label x:Name="BlueScoreLabel" Text="Очков: 0" HorizontalOptions="FillAndExpand"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <Entry Placeholder="Команды игротехов" x:Name="DestroyPointEntry" HorizontalOptions="FillAndExpand"></Entry>
+            <Button Text="Ввод" Clicked="ClearButton_Clicked"></Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
